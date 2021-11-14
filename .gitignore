@@ -1,2 +1,10 @@
 # vim files
 *.swp
+
+# latex files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.gz
