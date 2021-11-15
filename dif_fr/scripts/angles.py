@@ -21,7 +21,7 @@ def i_plot(N, lambd, b, d, theta):
     
     ax.set_xlim([min(theta/np.pi*180*60),max(theta/np.pi*180*60)])
     ax.set_yscale('log')
-    ax.set_ylim([1e-3,5e2])
+    ax.set_ylim([1e-5,5e2])
     
     ax.set_ylabel(r'Относительная интенсивность света $I/I_0$')
     ax.set_xlabel(r'Угол дифракции $\theta$, минуты')
@@ -34,22 +34,23 @@ def i_plot(N, lambd, b, d, theta):
     # theta_imp = np.array([272+53/60+13/3600,272+51/60+54/3600,272+51/60+13/3600,272+50/60+30/3600,272+48/60+47/3600,272+47/60+10/3600,
                           # 272+45/60+37/3600,272+44/60+6/3600,272+42/60+41/3600,272+41/60+41/3600,272+40/60+41/3600,272+39/60+23/3600])
     
-    theta_theor = np.arcsin(np.array([1/2,0,-1/2])*lambd/b)
-    theta_imp = np.array([272+47/60+21/3600,272+46/60+21/3600,272+45/60+22/3600])
+    # theta_theor = np.arcsin(np.array([1/2,0,-1/2])*lambd/b)
+    # theta_imp = np.array([272+47/60+21/3600,272+46/60+21/3600,272+45/60+22/3600])
     
-    theta_imp *= 60
-    theta_imp -= np.mean(theta_imp)
+    # theta_imp *= 60
+    # theta_imp -= np.mean(theta_imp)
     
-    for th in theta_imp:
-        ax.vlines(th, 1e-5, 1e3, linestyle=':', color='black')
+    # for th in theta_imp:
+    #     ax.vlines(th, 1e-5, 1e3, linestyle=':', color='black')
         
-    fig.savefig('../plots/dif_{}.pdf'.format(N))
+    # fig.savefig('../plots/dif_{}_theor_{}.pdf'.format(N))
    
-    return theta_imp, theta_theor
+    # return theta_imp, theta_theor
     
     
 if __name__ == "__main__":
-    theta = np.linspace(-0.5*10e-4, 0.5*10e-4, 10000)
-    a1, a2 = i_plot(15,650e-9,1e-3,2e-3,theta)
+    theta = np.linspace(-5*10e-4, 5*10e-4, 10000)
+    i_plot(2,650e-9,1e-3,1
+           .5e-3,theta)
     
     
