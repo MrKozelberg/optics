@@ -17,12 +17,14 @@
 \usepackage{hyperref}
 \usepackage{cmap}
 
+\DeclareMathOperator\sinc{sinc}
+
 \title{Дифракция Фраунгофера}
 \author{Козлов Александр \and Краснощёкова Дарья}
 
 \begin{document}
 	\maketitle
-	\section{Формулы для интенсивности дифракционной картины}
+	\section{Формулы для вычисления интенсивности дифракционной картины}
 	Выведем из принципа Гюйгенса\---Френеля формулу для интенсивности в зависимости от угла дифракции. Пускай на решётку с периодом $d$ и щелями ширины $b$ падает свет амплитуды $E_0$ с длиной волны $\lambda$. Каждую щель разобьём на бесконечно малые излучатели ширины $\dd x$. Разность хода для излучателя с координатой $x$ и для излучателя с координатой $x=0$ будет
 	\begin{equation}
 		\Delta = x \sin{\theta}.
@@ -40,14 +42,14 @@
 	\end{equation}
 	Интегрируя по всей ширине щели, получаем зависимость комплексной амплитуды одной щели от $\sin{\theta}$
 	\begin{equation}
-		\tilde{E}_1\qty(\sin{\theta}) = E_0\, e^{i\dfrac{kb\sin{\theta}}{2}} sinc\qty(\dfrac{kb\sin{\theta}}{2}).
+		\tilde{E}_1\qty(\sin{\theta}) = E_0\, e^{i\dfrac{kb\sin{\theta}}{2}} \sinc\qty(\dfrac{kb\sin{\theta}}{2}).
 	\end{equation}
 	Откуда сразу получаем формулу для интенсивности света для одной щели
 	\begin{equation}
-		I_1 = \tilde{E}_1 \qty(\tilde{E}_1)^* = I_0\, sinc^2\qty(\dfrac{kb\sin{\theta}}{2}).
+		I_1 = \tilde{E}_1 \qty(\tilde{E}_1)^* = I_0\, \sinc^2\qty(\dfrac{kb\sin{\theta}}{2}).
 	\end{equation}
 	Что и требовалось проверить. 
-	\par Рассмотрим случай $N$ щелей. Для $m$\--ой щели имеем (добавиться набег фазы)
+	\par Рассмотрим случай $N$ щелей. Для $m$\--ой щели имеем (добавится набег фазы)
 	\begin{equation}
 		\tilde{E}_m\qty(\sin{\theta}) = \tilde{E}_1\qty(\sin{\theta}) e^{ik(m-1)d\sin{\theta}}.
 	\end{equation}
@@ -61,7 +63,7 @@
 	\end{equation}
 	Отсюда и получаем итоговую формулу для интенсивности дифракционной решётки из $N$ щелей
 	\begin{equation}
-		I_N =  I_0\, sinc^2\qty(\dfrac{kb\sin{\theta}}{2})\, \dfrac{\sin^2\qty(\dfrac{kdN\sin{\theta}}{2})}{\sin^2\qty(\dfrac{kd\sin{\theta}}{2})}.
+		I_N =  I_0\, \sinc^2\qty(\dfrac{kb\sin{\theta}}{2})\, \dfrac{\sin^2\qty(\dfrac{kdN\sin{\theta}}{2})}{\sin^2\qty(\dfrac{kd\sin{\theta}}{2})}.
 	\end{equation}
 
 	\section{Наблюдение дифракционной картины для различных решёток}
@@ -133,5 +135,6 @@
 		&0.55\ \text{мм} - \text{темно.}
 	\end{split}
 	\end{equation*}
+	Из измерений следует, что $\Delta x_\text{разм} = 0.08\ \text{мм}$ и $\Delta x_\text{темн} = 0.11\ \text{мм}$.	
 
 \end{document}
